@@ -105,8 +105,8 @@ jobs:
         category: "/language:${{matrix.language}}"
         output: code-scanning-results
     - name: Upload SARIF as a Build Artifact
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
-        name: sarif
+        name: sarif-${{ matrix.language }}-${{ github.run_id }}-${{ github.run_number }}
         path: code-scanning-results
         retention-days: 7
